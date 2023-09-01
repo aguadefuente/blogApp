@@ -1,15 +1,20 @@
-import "./App.css"
+import Navbar from "./Navbar";
+import Home from "./Home";
+
 
 function App() {
 
-  const title = "Welcome to the new blog";
-  const link = "https://www.google.com/"
+  //const link = "https://www.google.com/" //ejemplo de como agregar un link
 
   return (
     <>
       <div className="App">
-        <div classnName="content">{title}</div>
-        <a href={link}>Google site</a>
+        
+        <Navbar></Navbar>
+        <div className="content">
+          <Home></Home>
+        </div>
+       {/*<a href={link}>Google site</a>*/} 
       </div>
     </>
   )

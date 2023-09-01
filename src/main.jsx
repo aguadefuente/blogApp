@@ -1,4 +1,4 @@
-import React from 'react' //en otras versiones no necesito importarlo
+import React from 'react' 
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import "./index.css"
