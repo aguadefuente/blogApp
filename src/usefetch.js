@@ -17,9 +17,11 @@ const useFetch = (url) => {
   //para visualizar mejor el tiempo de espera hasta que se trae la data
   //agregamos un setTimeout() dentro del useEffect - es para hacer una simulación (no usar en un código real - reatarda la entrega de la data sin necesitad)
   useEffect(() => {
+    const abortCont = new AbortController();
+
     setTimeout(() => {
       //fetch nos devuelve una promesa. Entonces usamos el .then method y dentro el res object. para agarrar la data parseamos el json en un javaScript object con res.json()
-      fetch(url)
+      fetch(url, { signal: abortCont.signal })
         .then((res) => {
           console.log(res);
           if (!res.ok) {
@@ -34,11 +36,20 @@ const useFetch = (url) => {
           setError(null);
         })
         .catch((err) => {
-          console.log(err.message);
-          setIsPending(false); //si hay un error no se ve el msa ...pending
-          setError(err.message);
+          if (err.name === "AbortError") {
+            console.log("fetch aborted");
+          } else {
+            console.log(err.message);
+            setIsPending(false); //si hay un error no se ve el msa ...pending
+            setError(err.message);
+          }
         }); //para agarrar errores
-    }, 2000);
+    }, 1000);
+
+    return () => {
+      console.log("cleanUp!");
+      return abortCont.abort(); //abortamos el fetch
+    }; //clean up function
   }, [url]);
   /*entonces todos estos métodos asincrónicos se aseguran de pasar a la tarea
     siguiente cuando se haya realizado la primera.

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
 //Pasando Properties del padre al hijo
 //con destructuring
 const Bloglist = ({blogprop, titleprop}) => {
@@ -8,8 +10,10 @@ const Bloglist = ({blogprop, titleprop}) => {
             {/*hacemos un map() y usamos las props*/}
             {blogprop.map((blog) => 
             <div className="blog-preview" key={blog.id}>
-                <h2>{blog.title}</h2>
-                <p>written by {blog.author}</p>
+                <Link to={`/blogs/${blog.id}`}>
+                  <h2>{blog.title}</h2>
+                  <p>written by {blog.author}</p>
+                </Link>
             </div>
         )}
         </div>
