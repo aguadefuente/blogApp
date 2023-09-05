@@ -3,6 +3,7 @@ import Home from "./Home";
 import Create from "./Create";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import BlogDatails from "./BlogDetails";
+import NotFound from "./NotFound";
 
 
 function App() {
@@ -24,8 +25,12 @@ function App() {
               <Create/>
             </Route>
 
-            <Route path="/blogs/:id">
+            <Route path="/blogs/:id"> {/*para hacer dinámico el parám. usamos los : + cq nombre */}
               <BlogDatails/>
+            </Route>
+
+            <Route path="*">
+              <NotFound/>
             </Route>
           </Switch>
         </div>

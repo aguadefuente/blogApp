@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom";
+//Nota: Ver que a veces VSCode importa mal el componente 
+//ej: import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 //Pasando Properties del padre al hijo
 //con destructuring
