@@ -25,11 +25,15 @@ function App() {
               <Create/>
             </Route>
 
+            <Route path="/update/:id">
+              <Create/>
+            </Route>
+
             <Route path="/blogs/:id"> {/*para hacer dinámico el parám. usamos los : + cq nombre */}
               <BlogDatails/>
             </Route>
 
-            <Route path="*">
+            <Route path="*"> {/*el asterisco es que agarre cq otra ruta */}
               <NotFound/>
             </Route>
           </Switch>

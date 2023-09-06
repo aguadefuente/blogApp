@@ -1,5 +1,5 @@
 import Bloglist from "./Bloglist";
-import useFetch from "./usefetch";
+import useFetch from "./useFetch";
 
 const Home = () => {
    const {data: blogs, isPending, error} = useFetch("http://127.0.0.1:8000/blogs/") //aquí determinamos el valor de la url
