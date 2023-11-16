@@ -19,12 +19,6 @@
       "id": 3
     },
     {
-      "title": "Proximo lunes Valencia",
-      "body": "lsfjosidfj df sodifs df sodifs df",
-      "author": "mario",
-      "id": 4
-    },
-    {
       "title": "Estoy de vuelta",
       "body": "lsadkfjsdlfkj osd fosdfiu asodfiads f",
       "author": "mario",
@@ -35,6 +29,12 @@
       "body": "asdfld aldsfjadsf ldsifijads f",
       "author": "joshi",
       "id": 8
+    },
+    {
+      "title": "Noviembre Valenciano",
+      "body": "Volviendo a agarrar React aquí en Valencia",
+      "author": "mario",
+      "id": 9
     }
   ]
 }
