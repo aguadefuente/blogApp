@@ -14,9 +14,11 @@ const Home = () => {
         {blogs && <Bloglist blogprop={blogs} titleprop="All Blogs"></Bloglist>}
         
         {/*Volveos a usar el componente Bloglist pero con otra data - 
-        usaremos filter() para que traiga sólo los blogs escritos por mario
-        */}
+        usaremos filter() para que traiga sólo los blogs escritos por mario - descomentar para ver que renderiza
+        
         {blogs && <Bloglist blogprop={blogs.filter((blog) => blog.author === "mario")} titleprop="Mario`s Blog"></Bloglist>}
+        
+        */}
     </div>
     );
 }
