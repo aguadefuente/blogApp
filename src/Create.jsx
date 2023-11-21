@@ -1,14 +1,15 @@
 import { useState } from "react";
-import {useHistory, useLocation} from "react-router-dom";
+import {useHistory, useLocation, useParams} from "react-router-dom";
 
 const Create = () => {
+    const {id} = useParams()
     //para los datos del blog
     const [title, setTitle] = useState("")
     const [body, setBody] = useState("")
     const [author, setAuthor] = useState("mario") //para que uno de las options ya esté seleccionada
     //para cuando se cree el blog me lleve a home
     const history = useHistory()
-
+   
     //para el POST request y el estilo del ADD BLOG botón
     const [isPending, setIsPending] = useState(false)
 
@@ -37,17 +38,17 @@ const Create = () => {
             history.push("/") //para que me redirija a home una vez creado el blog
             })
       } else if(location.pathname.startsWith("/update") ){
-            fetch("http://127.0.0.1:8000/blogs/" + blog.id, {
-              headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json"
-              },
-              method: "PATCH",	 
-              body: JSON.stringify(blog) 
-              }).then(()=>{
-              setIsPending(false) //porque ya no está pending
-              console.log("blog updated")
-              })
+        fetch("http://127.0.0.1:8000/blogs/" + id, {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          },
+          method: "PATCH",
+          body: JSON.stringify(blog)
+        }).then(()=>{
+          console.log("cambio realizado")
+           history.push("/") 
+        })
         }
         
     }
