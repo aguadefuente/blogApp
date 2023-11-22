@@ -40,7 +40,7 @@ const useFetch = (url) => {
             console.log("fetch aborted");
           } else {
             console.log(err.message);
-            setIsPending(false); //si hay un error no se ve el msa ...pending
+            setIsPending(false); //si hay un error no se ve el msj ...pending
             setError(err.message);
           }
         }); //para agarrar errores

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {useHistory, useLocation, useParams} from "react-router-dom";
 
 const Create = () => {
@@ -13,10 +13,28 @@ const Create = () => {
     //para el POST request y el estilo del ADD BLOG botón
     const [isPending, setIsPending] = useState(false)
 
-    //para el UPDATE request 
     const location = useLocation(); 
     console.log(location)
 
+    if(location.pathname.startsWith("/update")) {
+      useEffect(()=>{
+         fetch("http://127.0.0.1:8000/blogs/" + id)
+          .then((res) => {
+            console.log(res);
+            if (!res.ok) {
+              throw Error("Could not fetch the data for that resource"); 
+            }
+            return res.json()
+          })
+          .then((data)=>{
+            setTitle(data.title)
+            setBody(data.body)
+          })
+          .catch((err) => {
+            console.log(err.message);
+          });
+      },[])
+    } 
 
     const handleSubmit = (e) =>{
       e.preventDefault() //prevent the refresh of the page
@@ -47,7 +65,7 @@ const Create = () => {
           body: JSON.stringify(blog)
         }).then(()=>{
           console.log("cambio realizado")
-           history.push("/") 
+          history.push("/") 
         })
         }
         
