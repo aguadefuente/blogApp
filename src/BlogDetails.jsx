@@ -7,7 +7,7 @@ const BlogDatails = () => {
     const history = useHistory() //para redirigirnos a distintas lados de la página web
 
     const handleDelete = () => {
-        if(window.confirm("Confirm to delete the post?")){
+        if(confirm("Confirm to delete the post?")){
             //delete request
      fetch("http://127.0.0.1:8000/blogs/" + blog.id, {
        method: "DELETE",
@@ -15,7 +15,6 @@ const BlogDatails = () => {
         history.push("/") //para que me reenvíe a home
      })
         }
-     
     }
 
 

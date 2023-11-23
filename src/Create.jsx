@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {useHistory, useLocation, useParams} from "react-router-dom";
 
 const Create = () => {
-    const {id} = useParams()
+    const {id} = useParams() //para hacer el patch y poder modificar según el id parameter
     //para los datos del blog
     const [title, setTitle] = useState("")
     const [body, setBody] = useState("")
@@ -13,12 +13,13 @@ const Create = () => {
     //para el POST request y el estilo del ADD BLOG botón
     const [isPending, setIsPending] = useState(false)
 
-    const location = useLocation(); 
-    console.log(location)
+    const location = useLocation(); //gives us access to the current location object
+    console.log("location", location) //The location object contains information about the current URL and can be used to access query parameters, path names, and other details related to the current route.
 
+    //un fetch para el Patch, así los input contienen los valores del post a modificar
     if(location.pathname.startsWith("/update")) {
       useEffect(()=>{
-         fetch("http://127.0.0.1:8000/blogs/" + id)
+        fetch("http://127.0.0.1:8000/blogs/" + id)
           .then((res) => {
             console.log(res);
             if (!res.ok) {
@@ -39,12 +40,13 @@ const Create = () => {
     const handleSubmit = (e) =>{
       e.preventDefault() //prevent the refresh of the page
       //Post request crea un id propio por ello nuestro objeto no nec. id
-      const blog = {title, body, author} //el objeto para POST
+      const blog = {title, body, author} //el objeto para POST que tiene las variables de los useState
       console.log(blog)
 
       setIsPending(true) //mientras la data no llega
 
-      if(location.pathname === '/create') {
+      //acá usamos useLocation comparando los pathnames
+      if(location.pathname.startsWith('/create')) {
             fetch("http://127.0.0.1:8000/blogs", {
             method: "POST", //agregará el nuevo blog a la url especificada arriba
             headers: {"Content-Type": "application/json"}, //que el contenido que mandaremos será un json
@@ -77,7 +79,7 @@ const Create = () => {
             <form onSubmit={handleSubmit}> {/*al apretar los buttons*/}
                <label>Blog title:</label>
                <input 
-                 value={title} //controlled input 
+                 value={title} //controlled input para trackear su valor y que esté en sintonía con el state
                  type="text" 
                  required
                  onChange={((e)=>setTitle(e.target.value))} //contrelled input
