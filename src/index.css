@@ -62,7 +62,6 @@
   margin: 20px 0;
 }
 .blog-details button {
-  background: #f1356d;
   color: #fff;
   border: 0;
   padding: 8px;
@@ -70,6 +69,17 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
+#delete {
+  background: #f1356d;
+}
+#archive {
+  background: #ffb700;
+}
+#update {
+  background: green;
+}
+
 /* create new blog form */
 .create {
   max-width: 400px;

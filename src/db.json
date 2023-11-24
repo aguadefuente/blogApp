@@ -28,13 +28,15 @@
       "title": "No me lo agarraba",
       "body": "caca de pollo",
       "author": "mario",
-      "id": 11
+      "id": 11,
+      "isDeleted": "true"
     },
     {
       "title": "22 de noviembre",
       "body": "voy a hacer un nuevo useEffect con fetch para el componente Create cuando la url sea /update",
       "author": "mario",
-      "id": 13
+      "id": 13,
+      "isDeleted": "true"
     }
   ]
 }

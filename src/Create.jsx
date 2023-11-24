@@ -50,7 +50,7 @@ const Create = () => {
             fetch("http://127.0.0.1:8000/blogs", {
             method: "POST", //agregará el nuevo blog a la url especificada arriba
             headers: {"Content-Type": "application/json"}, //que el contenido que mandaremos será un json
-            body: JSON.stringify(blog) //transforma nuestro objeto a json
+            body: JSON.stringify(blog) //blog es el objeto a agregar y lo transforma a json
             }).then(()=>{
             console.log("new blog added")
             setIsPending(false) //porque ya no está pending
@@ -64,13 +64,12 @@ const Create = () => {
             "Content-Type": "application/json"
           },
           method: "PATCH",
-          body: JSON.stringify(blog)
+          body: JSON.stringify(blog) //acá le paso los fields a modificar
         }).then(()=>{
           console.log("cambio realizado")
           history.push("/") 
         })
         }
-        
     }
 
     return ( 
