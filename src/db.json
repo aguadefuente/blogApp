@@ -16,27 +16,42 @@
       "title": "Septiembre en Tenerife",
       "body": "Últimos días de surf, playa y yoga. Hermosa eterna primavera y su desierto tranquilo",
       "author": "mario",
-      "id": 3
+      "id": 3,
+      "isDeleted": "true"
     },
     {
       "title": "Noviembre Valenciano",
       "body": "Volviendo a agarrar React aquí en Valencia",
       "author": "mario",
-      "id": 9
+      "id": 9,
+      "isDeleted": "true"
     },
     {
-      "title": "No me lo agarraba",
-      "body": "caca de pollo",
+      "title": "No lograba PATCH request",
+      "body": "caca de pollo y cositas",
       "author": "mario",
       "id": 11,
-      "isDeleted": "true"
+      "isDeleted": false
     },
     {
       "title": "22 de noviembre",
       "body": "voy a hacer un nuevo useEffect con fetch para el componente Create cuando la url sea /update",
       "author": "mario",
       "id": 13,
-      "isDeleted": "true"
+      "isDeleted": false
+    },
+    {
+      "title": "Unarchive filter",
+      "body": "Success. False/True is not the same as \"False\"/\"True\". This second one always means truthy value.",
+      "author": "mario",
+      "id": 14,
+      "isDeleted": false
+    },
+    {
+      "title": "Chat GPT es mi amigo",
+      "body": "Gracias Char GPT. Me ayudó a hacer un mix de los dos handleEvents que tenía para archivar y desarchivar. \nTambién a usar ternary operator así los botones se veían con un código más conciso en vez de usar dos && operator.",
+      "author": "mario",
+      "id": 15
     }
   ]
 }

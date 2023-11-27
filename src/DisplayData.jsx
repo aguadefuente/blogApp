@@ -10,6 +10,7 @@ const DisplayData = () => {
   } = useFetch("http://127.0.0.1:8000/blogs/");
   const location = useLocation();
 
+  console.log(JSON.stringify(blogs));
   return (
     <div className="home">
       {error && <div>{error}</div>}
